@@ -6,8 +6,7 @@ import {
   Twitter, 
   Instagram, 
   Mail, 
-  Heart,
-  MapPin
+  Heart
 } from 'lucide-react';
 
 const Footer = () => {
@@ -23,9 +22,6 @@ const Footer = () => {
             <p className="text-foreground/80 mb-4">
               A celebration of Indian perspectives on mindful living, creativity, and personal growth.
             </p>
-            <div className="flex items-center text-blog-brown mb-3">
-              <MapPin size={18} className="mr-2" /> Mumbai, India
-            </div>
             <div className="flex space-x-4">
               <a href="#" className="text-blog-brown hover:text-blog-light-brown transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
@@ -90,7 +86,7 @@ const Footer = () => {
         <div className="mt-8 pt-6 border-t border-border/30 text-center text-foreground/70 text-sm">
           <p>© {currentYear} IndiaBloom. All rights reserved.</p>
           <p className="mt-2 flex items-center justify-center">
-            Made with <Heart size={14} className="mx-1 text-blog-brown" /> in Mumbai
+            Made with <Heart size={14} className="mx-1 text-blog-brown" /> in India
           </p>
         </div>
       </div>

@@ -1,18 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '@/components/Layout';
 import ContactForm from '@/components/contact/ContactForm';
-import IndiaMap from '@/components/contact/IndiaMap';
 import { Card, CardContent } from '@/components/ui/card';
-import { Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, Clock } from 'lucide-react';
 
 const ContactPage = () => {
-  const [selectedLocation, setSelectedLocation] = useState('Mumbai');
-
-  const handleSelectLocation = (city: string) => {
-    setSelectedLocation(city);
-  };
-
   return (
     <Layout>
       <section className="py-12 md:py-16 bg-gradient-to-b from-blog-beige/50 to-transparent">
@@ -24,20 +17,7 @@ const ContactPage = () => {
             </p>
           </div>
           
-          {/* Location Map */}
-          <div className="mb-12">
-            <Card className="bg-card/30 border-blog-brown/20 shadow-md">
-              <CardContent className="p-6 md:p-8">
-                <h2 className="text-2xl font-serif font-bold mb-6 text-blog-brown text-center">Our Locations in India</h2>
-                <IndiaMap 
-                  onSelectLocation={handleSelectLocation} 
-                  selectedLocation={selectedLocation} 
-                />
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <Card className="bg-card/50 border-blog-brown/20 shadow-sm hover:shadow-md transition-all">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="w-12 h-12 flex items-center justify-center bg-blog-brown/10 rounded-full mb-4">
@@ -48,19 +28,6 @@ const ContactPage = () => {
                 <a href="mailto:hello@indiabloom.com" className="text-blog-brown hover:underline">
                   hello@indiabloom.com
                 </a>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-card/50 border-blog-brown/20 shadow-sm hover:shadow-md transition-all">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="w-12 h-12 flex items-center justify-center bg-blog-brown/10 rounded-full mb-4">
-                  <MapPin className="h-6 w-6 text-blog-brown" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-blog-brown">Location</h3>
-                <p className="text-foreground/70">
-                  {selectedLocation}<br />
-                  India
-                </p>
               </CardContent>
             </Card>
             
