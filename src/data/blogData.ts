@@ -1,4 +1,3 @@
-
 const blogData = {
   featuredPosts: [
     {
@@ -275,8 +274,8 @@ const blogData = {
     {
       id: '5',
       slug: 'house-plants',
-      title: 'Beginner's Guide to House Plants',
-      excerpt: 'How to select, care for, and enjoy indoor plants, even if you don't have a green thumb.',
+      title: 'Beginner\'s Guide to House Plants',
+      excerpt: 'How to select, care for, and enjoy indoor plants, even if you don\'t have a green thumb.',
       coverImage: 'https://images.unsplash.com/photo-1545165375-7c5fbb3b8f9b?q=80&w=2070&auto=format&fit=crop',
       date: 'March 15, 2025',
       author: 'Lily Parker',
@@ -502,7 +501,7 @@ const blogData = {
     image: 'https://images.unsplash.com/photo-1509220157937-e90226704927?q=80&w=1973&auto=format&fit=crop',
     authorImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
     authorName: 'Emma Lawrence',
-    authorBio: 'Hi, I'm Emma! I'm a writer, mindfulness practitioner, and sustainability advocate based in Portland, Oregon. I started BloomScribe in 2023 as a way to share my journey toward living more intentionally and connect with others on similar paths.',
+    authorBio: 'Hi, I\'m Emma! I\'m a writer, mindfulness practitioner, and sustainability advocate based in Portland, Oregon. I started BloomScribe in 2023 as a way to share my journey toward living more intentionally and connect with others on similar paths.',
     mission: 'At BloomScribe, we believe that small, mindful choices can lead to profound positive changes in our lives and in the world around us. Through thoughtful content and practical advice, we aim to inspire and support readers in creating more intentional, sustainable, and joyful lives.',
     values: [
       {
