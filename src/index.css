@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 40 6% 15%;
 
-    --primary: 98 24% 33%;
+    --primary: 27 56% 42%;
     --primary-foreground: 42 33% 99%;
 
-    --secondary: 100 10% 53%;
+    --secondary: 35 29% 55%;
     --secondary-foreground: 42 33% 99%;
 
     --muted: 35 30% 96%;
     --muted-foreground: 40 4% 40%;
 
-    --accent: 100 10% 53%;
+    --accent: 35 29% 55%;
     --accent-foreground: 42 33% 99%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
 
     --border: 35 20% 90%;
     --input: 35 20% 90%;
-    --ring: 100 20% 30%;
+    --ring: 27 56% 42%;
 
     --radius: 0.5rem;
   }
@@ -48,16 +48,16 @@
     --popover: 40 6% 18%;
     --popover-foreground: 42 33% 99%;
 
-    --primary: 100 12% 60%;
+    --primary: 27 36% 50%;
     --primary-foreground: 40 6% 15%;
 
-    --secondary: 100 6% 40%;
+    --secondary: 35 29% 45%;
     --secondary-foreground: 42 33% 99%;
 
     --muted: 40 6% 25%;
     --muted-foreground: 40 3% 70%;
 
-    --accent: 100 6% 40%;
+    --accent: 35 29% 45%;
     --accent-foreground: 42 33% 99%;
 
     --destructive: 0 62.8% 30.6%;
@@ -65,7 +65,7 @@
 
     --border: 40 6% 25%;
     --input: 40 6% 25%;
-    --ring: 100 12% 60%;
+    --ring: 27 36% 50%;
   }
 }
 
@@ -104,18 +104,21 @@
     @apply prose prose-lg md:prose-xl max-w-none prose-headings:font-serif prose-p:text-foreground/90 prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg;
   }
   .nav-link {
-    @apply text-foreground/80 hover:text-primary transition-colors px-3 py-2 text-sm md:text-base font-medium;
+    @apply text-foreground/80 hover:text-blog-brown transition-colors px-3 py-2 text-sm md:text-base font-medium;
   }
   .nav-link-active {
-    @apply text-primary font-semibold;
+    @apply text-blog-brown font-semibold;
   }
   .featured-post {
-    @apply relative overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-lg bg-card;
+    @apply relative overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-lg bg-card border border-blog-brown/10;
   }
   .post-card {
-    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300;
+    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-blog-brown/10;
   }
   .section-title {
     @apply text-2xl md:text-3xl font-serif font-bold mb-6 pb-2 border-b border-border/50 inline-block;
+  }
+  .category-badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-medium bg-blog-brown/10 text-blog-brown;
   }
 }

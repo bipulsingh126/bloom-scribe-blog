@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -13,11 +13,14 @@ const Navbar = () => {
 
   return (
     <header className="border-b border-border/40 bg-background/95 backdrop-blur-sm sticky top-0 z-50">
+      <div className="flex items-center justify-center bg-blog-brown/80 text-white py-1 text-xs md:text-sm">
+        <MapPin size={14} className="mr-1" /> Mumbai, India
+      </div>
       <div className="blog-container py-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center">
-            <NavLink to="/" className="font-serif text-2xl font-bold text-blog-green">
-              BloomScribe
+            <NavLink to="/" className="font-serif text-2xl font-bold text-blog-brown">
+              IndiaBloom
             </NavLink>
           </div>
 
