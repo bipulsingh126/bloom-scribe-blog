@@ -121,4 +121,19 @@
   .category-badge {
     @apply inline-block px-3 py-1 rounded-full text-xs font-medium bg-blog-brown/10 text-blog-brown;
   }
+  .location-marker {
+    @apply cursor-pointer transition-all duration-300;
+  }
+  .location-marker:hover {
+    @apply text-blog-brown transform scale-110;
+  }
+  .location-marker-active {
+    @apply text-blog-brown font-medium scale-110;
+  }
+  .mapboxgl-popup {
+    @apply max-w-xs;
+  }
+  .mapboxgl-popup-content {
+    @apply p-3 rounded-lg shadow-lg font-serif text-center;
+  }
 }
