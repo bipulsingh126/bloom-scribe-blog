@@ -129,8 +129,38 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.4s ease-out',
 				'fade-out': 'fade-out 0.4s ease-out',
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: 'none',
+						color: 'hsl(var(--foreground))',
+						a: {
+							color: 'hsl(var(--primary))',
+							'&:hover': {
+								color: 'hsl(var(--primary))',
+								opacity: '0.8'
+							}
+						},
+						h1: {
+							fontFamily: 'Playfair Display, Georgia, serif',
+						},
+						h2: {
+							fontFamily: 'Playfair Display, Georgia, serif',
+						},
+						h3: {
+							fontFamily: 'Playfair Display, Georgia, serif',
+						},
+						h4: {
+							fontFamily: 'Playfair Display, Georgia, serif',
+						},
+					}
+				}
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"), 
+		require('@tailwindcss/typography')
+	],
 } satisfies Config;
