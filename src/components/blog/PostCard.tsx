@@ -73,7 +73,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             alt={post.title}
             className="absolute top-0 left-0 object-cover w-full h-full z-0 transition-transform duration-300"
             src={post.coverImage && post.coverImage.indexOf('http') === 0 ? post.coverImage : `/images/${post.coverImage}`}
-            onError={handleImageError}
+            onError={(e) => handleImageError(e)}
           />
           <div className="absolute top-3 left-3 z-10">
             <Chip 
@@ -113,7 +113,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                 src={post.authorImage && post.authorImage.indexOf('http') === 0 ? post.authorImage : `/images/${post.authorImage}`}
                 size="sm" 
                 className="mr-2 border-1 border-primary/20 transform-gpu transition-transform hover:scale-110" 
-                onError={handleImageError}
+                onError={(e) => handleImageError(e)}
               />
             ) : (
               <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mr-2">

@@ -39,8 +39,8 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" }
   ];
 
-  // Custom NavLink className function
-  const navLinkClasses = ({ isActive }: { isActive: boolean }): string => {
+  // Fix NavLink className function with proper typing
+  const navLinkClasses = ({ isActive }: { isActive: boolean }) => {
     return isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground";
   };
 
