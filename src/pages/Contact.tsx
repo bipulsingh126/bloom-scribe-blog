@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input, Textarea, Divider, Image } from '@nextui-org/react';
 import { Mail, MapPin, Phone, Send, Clock, HeartHandshake, Users, MessageSquare } from 'lucide-react';
-import { Card } from '../components/ui/card';
+import { Card } from '../components/ui/Card';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
