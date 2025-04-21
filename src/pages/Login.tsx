@@ -216,7 +216,7 @@ const Login = () => {
                           transform: 'translateZ(15px)',
                           boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
                         }}
-                        onClick={handleGoogleLogin}
+                        onPress={handleGoogleLogin}
                         disabled={isLoading}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2">
@@ -238,7 +238,7 @@ const Login = () => {
                           transform: 'translateZ(15px)',
                           boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
                         }}
-                        onClick={handleFacebookLogin}
+                        onPress={handleFacebookLogin}
                         disabled={isLoading}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2" fill="#1877f2">

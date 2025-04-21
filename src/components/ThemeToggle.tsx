@@ -35,7 +35,7 @@ export function ThemeToggle() {
       size="sm"
       aria-label="Toggle theme"
       className="theme-toggle-selector relative h-9 w-9 border border-border hover:bg-accent hover:text-accent-foreground"
-      onClick={handleThemeChange}
+      onPress={handleThemeChange}
     >
       <div className="relative h-6 w-6">
         {/* Sun icon with rays that animate */}

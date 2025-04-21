@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Button, Card, CardBody, Image, Input, Chip } from '@nextui-org/react';
-import { CalendarIcon, Clock, Search, Filter } from 'lucide-react';
+import { CalendarIcon, Clock, Search, Filter, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Blog = () => {
@@ -330,12 +330,14 @@ const Blog = () => {
           </div>
           <div className="relative">
             <Button
+              color="primary"
               variant="flat"
-              className="md:hidden mb-2"
-              startContent={<Filter size={18} />}
-              onClick={() => setOpenFilters(!openFilters)}
+              size="sm"
+              className="md:hidden"
+              onPress={() => setOpenFilters(!openFilters)}
+              endContent={openFilters ? <X size={16} /> : <Filter size={16} />}
             >
-              Categories
+              {openFilters ? 'Hide Filters' : 'Filters'}
             </Button>
             <div className={`flex flex-wrap gap-2 md:flex ${openFilters ? 'absolute z-10 p-4 rounded-lg bg-background/80 backdrop-blur-md shadow-lg' : 'hidden'}`}>
               {categories.map((category) => (

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -42,6 +41,15 @@ const Navbar = () => {
   // Custom NavLink className function
   const navLinkClasses = ({ isActive }: { isActive: boolean }): string => {
     return isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground";
+  };
+
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setIsMenuOpen(false);
   };
 
   return (
@@ -128,7 +136,7 @@ const Navbar = () => {
                   <p className="font-semibold">{user?.email}</p>
                 </DropdownItem>
                 <DropdownItem key="settings">My Settings</DropdownItem>
-                <DropdownItem key="logout" color="danger" onClick={logout}>
+                <DropdownItem key="logout" color="danger" onPress={logout}>
                   Log Out
                 </DropdownItem>
               </DropdownMenu>
@@ -144,7 +152,7 @@ const Navbar = () => {
               as={NavLink}
               to={item.path}
               className={navLinkClasses}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleMenuItemClick}
             >
               {item.name}
             </Link>
@@ -159,7 +167,7 @@ const Navbar = () => {
                 color="primary"
                 variant="flat"
                 className="text-sm font-medium hover:scale-105 transition-transform w-full justify-start"
-                onClick={() => setIsMenuOpen(false)}
+                onPress={handleMenuItemClick}
               >
                 Login
               </Button>
@@ -171,7 +179,7 @@ const Navbar = () => {
                 color="primary"
                 variant="flat"
                 className="text-sm font-medium hover:scale-105 transition-transform w-full justify-start"
-                onClick={() => setIsMenuOpen(false)}
+                onPress={handleMenuItemClick}
               >
                 Sign Up
               </Button>
@@ -182,10 +190,7 @@ const Navbar = () => {
             <Button
               color="danger"
               variant="light"
-              onClick={() => {
-                logout();
-                setIsMenuOpen(false);
-              }}
+              onPress={handleLogout}
             >
               Log Out
             </Button>

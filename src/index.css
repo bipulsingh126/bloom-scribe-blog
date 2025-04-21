@@ -66,28 +66,15 @@
     --input: 220 20% 25%;
     --ring: 250 95% 60%;
   }
-}
 
-/* Theme transition */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-/* Disable transition on theme toggle button elements */
-.theme-toggle-selector * {
-  transition: none !important;
-}
-
-@layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground relative;
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'Inter', sans-serif;
+    position: relative;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-poppins font-bold;
@@ -114,6 +101,11 @@
     position: relative;
   }
   
+  /* Add position: relative to important containers */
+  .container, main, section, .glass-morphism {
+    position: relative;
+  }
+  
   img[src^="/images/"]::before {
     content: "Image";
     display: flex;
@@ -129,6 +121,18 @@
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
   }
+}
+
+/* Theme transition */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Disable transition on theme toggle button elements */
+.theme-toggle-selector * {
+  transition: none !important;
 }
 
 @layer components {
