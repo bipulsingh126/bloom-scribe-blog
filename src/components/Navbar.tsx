@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { NavLink, Link as RouterLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { 
   Navbar as NextUINavbar, 
@@ -39,8 +39,8 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" }
   ];
 
-  // The NavLink component expects a function for className prop
-  const getNavLinkClasses = ({ isActive }: { isActive: boolean }) => {
+  // Custom NavLink className function
+  const navLinkClasses = ({ isActive }: { isActive: boolean }): string => {
     return isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground";
   };
 
@@ -70,12 +70,13 @@ const Navbar = () => {
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.name}>
-            <NavLink
+            <Link
+              as={NavLink}
               to={item.path}
-              className={getNavLinkClasses}
+              className={navLinkClasses}
             >
               {item.name}
-            </NavLink>
+            </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -139,13 +140,14 @@ const Navbar = () => {
       <NavbarMenu className="bg-background/95 backdrop-blur-sm">
         {menuItems.map((item) => (
           <NavbarMenuItem key={item.name}>
-            <NavLink
+            <Link
+              as={NavLink}
               to={item.path}
-              className={getNavLinkClasses}
+              className={navLinkClasses}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
-            </NavLink>
+            </Link>
           </NavbarMenuItem>
         ))}
         {!isAuthenticated ? (
