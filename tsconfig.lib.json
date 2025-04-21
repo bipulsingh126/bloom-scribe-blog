@@ -6,7 +6,6 @@
     "target": "ESNext",
     "module": "ESNext",
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx"
+    "allowSyntheticDefaultImports": true
   }
 }
