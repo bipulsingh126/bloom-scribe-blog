@@ -286,45 +286,16 @@ const Contact = () => {
           <p className="text-foreground/70 max-w-2xl mx-auto">Visit our office in the heart of Delhi or connect with us online.</p>
         </div>
         
-        <div className="aspect-video rounded-xl overflow-hidden shadow-lg border-glow glass-morphism relative">
-          {/* Primary iframe with fallback */}
+        <div className="aspect-video rounded-xl overflow-hidden shadow-lg border-glow glass-morphism">
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.1921348571777%2C28.629485071375396%2C77.22096443176271%2C28.64976955418837&amp;layer=mapnik&amp;marker=28.63962758975696%2C77.20654964447021"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5312350953047!2d77.20651841508096!3d28.6396255824252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1625103227589!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"
             title="IndiaBloom Office Location"
-            onError={(e) => {
-              // If iframe fails to load, we can handle it here
-              console.log("Map failed to load", e);
-              const target = e.target as HTMLIFrameElement;
-              if (target.parentElement) {
-                target.style.display = 'none';
-              }
-            }}
           ></iframe>
-          
-          {/* Fallback content if map doesn't load */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-muted/50 z-10 pointer-events-none">
-            <div className="bg-background p-6 rounded-lg shadow-lg max-w-md text-center pointer-events-auto">
-              <h3 className="text-xl font-bold mb-2">Our Location</h3>
-              <p className="mb-4">
-                123 Cultural Street<br />
-                Connaught Place, New Delhi<br />
-                India, 110001
-              </p>
-              <a 
-                href="https://www.openstreetmap.org/?mlat=28.64&mlon=77.21#map=16/28.64/77.21" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                View Larger Map
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </div>
