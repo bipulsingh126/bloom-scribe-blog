@@ -1,22 +1,21 @@
-
 import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { LngLatLike } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Navigation, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
-// Major cities in India with their coordinates
+// Major cities in India with their coordinates as tuples
 const INDIAN_CITIES = [
-  { name: 'Mumbai', coordinates: [72.8777, 19.0760] },
-  { name: 'Delhi', coordinates: [77.1025, 28.7041] },
-  { name: 'Bangalore', coordinates: [77.5946, 12.9716] },
-  { name: 'Hyderabad', coordinates: [78.4867, 17.3850] },
-  { name: 'Chennai', coordinates: [80.2707, 13.0827] },
-  { name: 'Kolkata', coordinates: [88.3639, 22.5726] },
-  { name: 'Jaipur', coordinates: [75.7873, 26.9124] },
-  { name: 'Ahmedabad', coordinates: [72.5714, 23.0225] },
-  { name: 'Pune', coordinates: [73.8567, 18.5204] },
-  { name: 'Kochi', coordinates: [76.2673, 9.9312] },
+  { name: 'Mumbai', coordinates: [72.8777, 19.0760] as [number, number] },
+  { name: 'Delhi', coordinates: [77.1025, 28.7041] as [number, number] },
+  { name: 'Bangalore', coordinates: [77.5946, 12.9716] as [number, number] },
+  { name: 'Hyderabad', coordinates: [78.4867, 17.3850] as [number, number] },
+  { name: 'Chennai', coordinates: [80.2707, 13.0827] as [number, number] },
+  { name: 'Kolkata', coordinates: [88.3639, 22.5726] as [number, number] },
+  { name: 'Jaipur', coordinates: [75.7873, 26.9124] as [number, number] },
+  { name: 'Ahmedabad', coordinates: [72.5714, 23.0225] as [number, number] },
+  { name: 'Pune', coordinates: [73.8567, 18.5204] as [number, number] },
+  { name: 'Kochi', coordinates: [76.2673, 9.9312] as [number, number] },
 ];
 
 interface IndiaMapProps {
@@ -49,6 +48,7 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
     }
   };
 
+  // Modify the references to coordinates to use type assertion
   useEffect(() => {
     if (!mapContainer.current || !mapboxToken) return;
 
@@ -58,7 +58,7 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/light-v11',
-      center: [78.9629, 20.5937], // Center of India
+      center: [78.9629, 20.5937] as LngLatLike, // Type assertion for center
       zoom: 3.5,
     });
 
@@ -68,7 +68,6 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
       'top-right'
     );
 
-    // When map loads, add markers for each city
     map.current.on('load', () => {
       // Add markers for each city
       INDIAN_CITIES.forEach((city) => {
@@ -83,7 +82,7 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
           
           // Fly to the selected location
           map.current?.flyTo({
-            center: city.coordinates,
+            center: city.coordinates as LngLatLike,
             zoom: 8,
             essential: true
           });
@@ -100,7 +99,7 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
         const city = INDIAN_CITIES.find(c => c.name === selectedLocation);
         if (city) {
           map.current.flyTo({
-            center: city.coordinates,
+            center: city.coordinates as LngLatLike,
             zoom: 8,
             essential: true
           });
