@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarIcon, Clock, User } from 'lucide-react';
@@ -20,7 +19,7 @@ interface FeaturedPostProps {
 
 const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
   return (
-    <div className="featured-post h-full">
+    <div className="featured-post bg-white dark:bg-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <Link to={`/blog/${post.slug}`} className="block h-full">
         <div className="md:flex h-full">
           <div className="md:w-1/2">
@@ -31,11 +30,11 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
             />
           </div>
           <div className="p-6 md:w-1/2 flex flex-col justify-center">
-            <Badge variant="outline" className="mb-2 text-xs inline-block w-fit">
+            <Badge variant="outline" className="mb-2 text-xs inline-block w-fit bg-blog-cream/20 text-blog-brown dark:bg-primary/10 dark:text-primary">
               {post.category}
             </Badge>
-            <h2 className="text-2xl md:text-3xl font-bold font-serif mb-3">{post.title}</h2>
-            <p className="text-foreground/75 mb-4">{post.excerpt}</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-serif mb-3 text-blog-brown dark:text-primary">{post.title}</h2>
+            <p className="text-foreground/75 mb-4 line-clamp-3">{post.excerpt}</p>
             <div className="flex items-center text-sm text-foreground/60 mt-auto">
               <div className="flex items-center">
                 <User size={14} className="mr-1" />

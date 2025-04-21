@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -7,22 +6,32 @@ import PostCard from '@/components/blog/PostCard';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import blogData from '@/data/blogData';
+import { Button as NextUIButton } from '@nextui-org/react';
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blog-beige to-blog-cream py-16 md:py-24">
+      <section className="bg-gradient-to-r from-blog-beige to-blog-cream dark:from-background dark:to-background py-16 md:py-24">
         <div className="blog-container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="mb-4 inline-block bg-blog-brown/10 px-4 py-2 rounded-full text-blog-brown font-medium text-sm">
+            <div className="mb-4 inline-block bg-blog-brown/10 dark:bg-primary/10 px-4 py-2 rounded-full text-blog-brown dark:text-primary font-medium text-sm">
               Mindful Living from India
             </div>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Welcome to IndiaBloom</h1>
-            <p className="text-xl md:text-2xl text-foreground/80 mb-8">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 dark:text-foreground">Welcome to IndiaBloom</h1>
+            <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/80 mb-8">
               Exploring the rich heritage of Indian wisdom, sustainable practices, and mindful living through thoughtful stories and practical advice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <NextUIButton 
+                as={Link}
+                to="/blog"
+                color="primary"
+                size="lg"
+                className="bg-blog-brown hover:bg-blog-brown/90 text-white"
+              >
+                Get Started
+              </NextUIButton>
               <Button asChild size="lg" className="bg-blog-brown hover:bg-blog-brown/90">
                 <Link to="/blog">
                   Explore the Blog
@@ -38,9 +47,9 @@ const Index = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-background">
         <div className="blog-container">
-          <h2 className="section-title text-blog-brown">Explore Categories</h2>
+          <h2 className="section-title text-blog-brown dark:text-primary">Explore Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
             {['Ayurveda', 'Indian Cuisine', 'Yoga & Meditation', 'Sustainable Living', 'Travel'].map((category) => (
               <Link 
@@ -56,10 +65,10 @@ const Index = () => {
       </section>
 
       {/* Featured Posts Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white dark:bg-background">
         <div className="blog-container">
-          <h2 className="section-title text-blog-brown">Featured Stories</h2>
-          <div className="mt-8 space-y-8">
+          <h2 className="section-title text-blog-brown dark:text-primary">Featured Stories</h2>
+          <div className="mt-8 grid grid-cols-1 gap-8">
             {blogData.featuredPosts.map((post) => (
               <FeaturedPost key={post.id} post={post} />
             ))}
@@ -68,9 +77,9 @@ const Index = () => {
       </section>
 
       {/* Recent Posts Section */}
-      <section className="py-16 bg-muted/40">
+      <section className="py-16 bg-muted/40 dark:bg-muted/80">
         <div className="blog-container">
-          <h2 className="section-title text-blog-brown">Recent Articles</h2>
+          <h2 className="section-title text-blog-brown dark:text-primary">Recent Articles</h2>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogData.recentPosts.slice(0, 3).map((post) => (
               <PostCard key={post.id} post={post} />
@@ -88,12 +97,12 @@ const Index = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 dark:bg-background">
         <div className="blog-container">
-          <div className="bg-gradient-to-br from-blog-cream to-blog-beige rounded-xl p-8 md:p-12 shadow-md">
+          <div className="bg-gradient-to-br from-blog-cream to-blog-beige dark:from-background dark:to-muted/40 rounded-xl p-8 md:p-12 shadow-md">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-blog-brown">Stay Inspired</h2>
-              <p className="text-lg text-foreground/80 mb-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-blog-brown dark:text-primary">Stay Inspired</h2>
+              <p className="text-lg text-foreground/80 dark:text-foreground/80 mb-6">
                 Subscribe to receive thoughtfully curated content, new articles, and seasonal inspiration from India.
               </p>
               <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -107,7 +116,7 @@ const Index = () => {
                   Subscribe
                 </Button>
               </form>
-              <p className="text-sm text-foreground/60 mt-4">
+              <p className="text-sm text-foreground/60 dark:text-foreground/60 mt-4">
                 We respect your privacy and will never share your information.
               </p>
             </div>

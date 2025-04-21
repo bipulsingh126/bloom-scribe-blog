@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -85,50 +84,41 @@ export default {
 			fontFamily: {
 				serif: ['Playfair Display', 'Georgia', 'serif'],
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
-				'fade-in': {
-					'0%': {
-						opacity: '0',
-						transform: 'translateY(10px)'
-					},
-					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
-				},
-				'fade-out': {
-					'0%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					},
-					'100%': {
-						opacity: '0',
-						transform: 'translateY(10px)'
-					}
-				}
+				poppins: ['Poppins', 'sans-serif'],
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.4s ease-out',
-				'fade-out': 'fade-out 0.4s ease-out',
+				"in": "in 0.5s ease-out",
+				"out": "out 0.5s ease-in",
+				"slide-in-from-top": "slide-in-from-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+				"slide-in-from-bottom": "slide-in-from-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+				"fade-in": "fade-in 0.4s ease-in-out",
+				"fade-out": "fade-out 0.4s ease-in-out",
+			},
+			keyframes: {
+				"in": {
+					"0%": { opacity: "0" },
+					"100%": { opacity: "1" },
+				},
+				"out": {
+					"0%": { opacity: "1" },
+					"100%": { opacity: "0" },
+				},
+				"slide-in-from-top": {
+					"0%": { transform: "translateY(-10%)", opacity: "0" },
+					"100%": { transform: "translateY(0)", opacity: "1" },
+				},
+				"slide-in-from-bottom": {
+					"0%": { transform: "translateY(10%)", opacity: "0" },
+					"100%": { transform: "translateY(0)", opacity: "1" },
+				},
+				"fade-in": {
+					"0%": { opacity: "0" },
+					"100%": { opacity: "1" },
+				},
+				"fade-out": {
+					"0%": { opacity: "1" },
+					"100%": { opacity: "0" },
+				},
 			},
 			typography: {
 				DEFAULT: {

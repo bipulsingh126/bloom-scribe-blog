@@ -1,19 +1,18 @@
-
 import React, { useState } from 'react';
-import { Input } from '@/components/ui/input';
+import { Input, Button } from "@nextui-org/react";
 import { Search, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface SearchBarProps {
   onSearch: (term: string) => void;
+  initialValue?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialValue = '' }) => {
+  const [searchTerm, setSearchTerm] = useState(initialValue);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(searchTerm);
+  const handleChange = (value: string) => {
+    setSearchTerm(value);
+    onSearch(value);
   };
 
   const clearSearch = () => {
@@ -22,29 +21,34 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex relative mb-8">
+    <div className="mb-6">
       <Input
         type="text"
-        placeholder="Search posts..."
+        placeholder="Search articles..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="pr-10"
+        onValueChange={handleChange}
+        startContent={<Search size={16} className="text-default-400" />}
+        endContent={
+          searchTerm && (
+            <Button
+              isIconOnly
+              size="sm"
+              variant="light"
+              onClick={clearSearch}
+              className="text-default-400 hover:text-primary"
+            >
+              <X size={14} />
+            </Button>
+          )
+        }
+        radius="lg"
+        className="max-w-full"
+        classNames={{
+          inputWrapper: "bg-default-100"
+        }}
+        aria-label="Search"
       />
-      {searchTerm && (
-        <button
-          type="button"
-          onClick={clearSearch}
-          className="absolute right-12 top-1/2 -translate-y-1/2 text-foreground/60 hover:text-foreground"
-          aria-label="Clear search"
-        >
-          <X size={16} />
-        </button>
-      )}
-      <Button type="submit" className="ml-2">
-        <Search size={18} className="mr-2" />
-        Search
-      </Button>
-    </form>
+    </div>
   );
 };
 
