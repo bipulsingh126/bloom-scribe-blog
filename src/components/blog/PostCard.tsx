@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarIcon, Clock, User } from 'lucide-react';
@@ -52,7 +53,8 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   // Function to handle image error
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = '/images/fallback-image.jpg';
+    const target = e.currentTarget as HTMLImageElement;
+    target.src = '/images/fallback-image.jpg';
   };
 
   return (
@@ -70,7 +72,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             removeWrapper
             alt={post.title}
             className="absolute top-0 left-0 object-cover w-full h-full z-0 transition-transform duration-300"
-            src={post.coverImage.startsWith('http') ? post.coverImage : `/images/${post.coverImage}`}
+            src={post.coverImage && post.coverImage.indexOf('http') === 0 ? post.coverImage : `/images/${post.coverImage}`}
             onError={handleImageError}
           />
           <div className="absolute top-3 left-3 z-10">
@@ -108,7 +110,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           <div className="flex items-center">
             {post.authorImage ? (
               <Avatar 
-                src={post.authorImage.startsWith('http') ? post.authorImage : `/images/${post.authorImage}`}
+                src={post.authorImage && post.authorImage.indexOf('http') === 0 ? post.authorImage : `/images/${post.authorImage}`}
                 size="sm" 
                 className="mr-2 border-1 border-primary/20 transform-gpu transition-transform hover:scale-110" 
                 onError={handleImageError}

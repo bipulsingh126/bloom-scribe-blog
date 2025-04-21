@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl, { LngLatLike } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -96,7 +97,7 @@ const IndiaMap: React.FC<IndiaMapProps> = ({ onSelectLocation, selectedLocation 
       
       // If there's a selected location, center on it
       if (selectedLocation) {
-        const city = INDIAN_CITIES.find(c => c.name === selectedLocation);
+        const city = INDIAN_CITIES.filter(c => c.name === selectedLocation)[0];
         if (city) {
           map.current.flyTo({
             center: city.coordinates as LngLatLike,

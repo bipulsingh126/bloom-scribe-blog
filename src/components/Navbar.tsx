@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -20,6 +21,13 @@ import {
 import ThemeToggle from './ThemeToggle';
 import { useAuth } from '../contexts/AuthContext';
 
+// Update User interface to include avatar
+interface User {
+  name?: string;
+  email?: string;
+  avatar?: string;
+}
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated, user, logout } = useAuth();
@@ -30,6 +38,11 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }
   ];
+
+  // Custom NavLink className function
+  const navLinkClasses = ({ isActive }: { isActive: boolean }): string => {
+    return isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground";
+  };
 
   return (
     <NextUINavbar 
@@ -60,9 +73,7 @@ const Navbar = () => {
             <Link
               as={NavLink}
               to={item.path}
-              className={({ isActive }) => 
-                isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground"
-              }
+              className={navLinkClasses}
             >
               {item.name}
             </Link>
@@ -108,7 +119,6 @@ const Navbar = () => {
                   className="transition-transform"
                   color="primary"
                   name={user?.name}
-                  size="sm"
                   src={user?.avatar}
                 />
               </DropdownTrigger>
@@ -133,9 +143,7 @@ const Navbar = () => {
             <Link
               as={NavLink}
               to={item.path}
-              className={({ isActive }) => 
-                isActive ? "text-primary font-medium" : "text-foreground/60 hover:text-foreground"
-              }
+              className={navLinkClasses}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
