@@ -168,7 +168,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 animate-fade-in" style="--animation-delay: 200ms">
+              <div className="flex items-start gap-4 animate-fade-in" style={{ animationDelay: '200ms' }}>
                 <div className="p-3 bg-primary/10 rounded-full border-glow">
                   <Phone size={24} className="text-primary" />
                 </div>
@@ -179,7 +179,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 animate-fade-in" style="--animation-delay: 400ms">
+              <div className="flex items-start gap-4 animate-fade-in" style={{ animationDelay: '400ms' }}>
                 <div className="p-3 bg-primary/10 rounded-full border-glow">
                   <MapPin size={24} className="text-primary" />
                 </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 animate-fade-in" style="--animation-delay: 600ms">
+              <div className="flex items-start gap-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
                 <div className="p-3 bg-primary/10 rounded-full border-glow">
                   <Clock size={24} className="text-primary" />
                 </div>
@@ -230,7 +230,7 @@ const Contact = () => {
             </Card.Body>
           </Card>
 
-          <Card variant="outline" shadow="md" hover="lift" className="p-6 card-hover-effect glass-morphism animate-slide-up" style="--animation-delay: 200ms">
+          <Card variant="outline" shadow="md" hover="lift" className="p-6 card-hover-effect glass-morphism animate-slide-up" style={{ animationDelay: '200ms' }}>
             <Card.Body className="text-center">
               <div className="bg-secondary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 border-glow">
                 <MessageSquare size={28} className="text-secondary" />
@@ -240,7 +240,7 @@ const Contact = () => {
             </Card.Body>
           </Card>
 
-          <Card variant="outline" shadow="md" hover="lift" className="p-6 card-hover-effect glass-morphism animate-slide-up" style="--animation-delay: 400ms">
+          <Card variant="outline" shadow="md" hover="lift" className="p-6 card-hover-effect glass-morphism animate-slide-up" style={{ animationDelay: '400ms' }}>
             <Card.Body className="text-center">
               <div className="bg-accent/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 border-glow">
                 <Users size={28} className="text-accent" />
